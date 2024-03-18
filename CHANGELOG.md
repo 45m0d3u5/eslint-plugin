@@ -1,5 +1,52 @@
 # Changelog
 
+## v0.13.0
+
+- Support new types `EventCallable` and `StoreWritable` in all rules
+- Drop support of Effector 22
+
+## v0.12.0
+
+- Migrate to TypeScript v5 and `@typescript-eslint/*` v6 ([PR #151](https://github.com/effector/eslint-plugin/pull/151)) by @7rulnik
+- Drop support of Node.js 14 and Node.js 15 since its support is dropped by Node.js itself 2 years ago and new versions of TypeScript and `@typescript-eslint/*` don't support it as well
+
+## v0.11.0
+
+- Add support of Node.js 19 and Node.js 20 ([PR #146](https://github.com/effector/eslint-plugin/pull/146)) by @xarety
+- Fixed edge-case of rule `enforce-store-naming-convention` ([PR #140](https://github.com/effector/eslint-plugin/pull/140)) by @raidenmiro
+
+## v0.10.5
+
+- Fix false-positive in `no-ambiguity-target` rule
+
+## v0.10.4
+
+- Fix false-positive in `enforce-store-naming-convention` rule ([PR #137](https://github.com/effector/eslint-plugin/pull/137))
+
+## v0.10.3
+
+- Fix unhandled rejection in `enforce-store-naming-convention` rule
+
+## v0.10.2
+
+- Fix unhandled exception in `no-patronum-debug` rule
+
+## v0.10.1
+
+- Fix false-positive in `no-patronum-debug` rule ([PR #126](https://github.com/effector/eslint-plugin/pull/126)) by @raidenmiro
+
+## v0.10.0
+
+- Allow using package on Node.js 15 and Node.js 17 ([PR #124](https://github.com/effector/eslint-plugin/pull/124))
+
+## v0.9.1
+
+- Fixed factory usage with `enforce-store-naming-convention` ([PR #122](https://github.com/effector/eslint-plugin/pull/122)) by @Lonli-Lokli
+
+## v0.9.0
+
+- Add new rule `no-patronum-debug` ([PR #121](https://github.com/effector/eslint-plugin/pull/121) by @raidenmiro)
+
 ## v0.8.2
 
 - Fix false-negative in `enforce-store-naming-convention` rule ([PR #119](https://github.com/effector/eslint-plugin/pull/119) by @iposokhin)

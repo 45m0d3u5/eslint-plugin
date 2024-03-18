@@ -1,5 +1,4 @@
-const { RuleTester } =
-  require("@typescript-eslint/experimental-utils").ESLintUtils;
+const { RuleTester } = require("@typescript-eslint/rule-tester");
 const { join } = require("path");
 
 const { readExample } = require("../../../utils/read-example");
@@ -25,7 +24,9 @@ ruleTester.run(
   "effector/enforce-store-naming-convention-prefix.ts.test",
   rule,
   {
-    valid: ["correct-store-naming.ts"].map(readExampleForTheRule),
+    valid: ["correct-store-naming.ts", "correct-issue-139.ts"].map(
+      readExampleForTheRule
+    ),
 
     invalid: [
       // Errors

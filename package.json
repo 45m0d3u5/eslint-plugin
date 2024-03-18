@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-effector",
-  "version": "0.8.2",
+  "version": "0.13.0",
   "description": "Enforcing best practices for Effector",
   "keywords": [
     "eslint",
@@ -12,32 +12,39 @@
   "main": "index.js",
   "author": "Igor Kamyshev <igor@kamyshev.me>",
   "license": "MIT",
+  "packageManager": "pnpm@8.10.5",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "docs:prepare": "node ./docs/scripts/prepare-toc.js && node ./docs/scripts/prepare-presets.js && node ./docs/scripts/prepare-changelog.js",
+    "docs:build": "pnpm docs:prepare && vitepress build docs",
+    "docs:dev": "pnpm docs:prepare && vitepress dev docs"
   },
   "publishConfig": {
     "access": "public"
   },
   "engines": {
-    "node": "^14 || ^16 || ^18"
+    "node": "^16 || ^17 || ^18 || ^19 || ^20 || ^21"
   },
   "devDependencies": {
     "@types/react": "^17.0.37",
-    "@typescript-eslint/experimental-utils": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@typescript-eslint/rule-tester": "^6.0.0",
+    "@typescript-eslint/utils": "^6.0.0",
     "clean-publish": "^3.2.0",
-    "effector": "^22.0.0",
-    "effector-react": "^22.0.6",
+    "effector": "^23",
+    "effector-react": "^23",
     "eslint": "^8.0.0",
     "glob": "^8.0.3",
-    "jest": "^27.1.0",
+    "jest": "^29.0.0",
     "nano-staged": "^0.5.0",
     "react": "^17.0.2",
     "simple-git-hooks": "^2.7.0",
-    "typescript": "^4.4.2"
+    "typescript": "^5.0.0",
+    "vitepress": "1.0.0-alpha.65",
+    "vue": "^3.2.45"
   },
   "peerDependencies": {
-    "effector": "*",
+    "effector": "^23",
     "eslint": "7 || 8"
   },
   "dependencies": {

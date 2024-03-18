@@ -1,3 +1,5 @@
+const { ESLintUtils } = require("@typescript-eslint/utils");
+
 const {
   traverseNestedObjectNode,
 } = require("../../utils/traverse-nested-object-node");
@@ -15,13 +17,19 @@ module.exports = {
     },
     messages: {
       abusiveCall:
-        "Method `.watch` leads to imperative code. Try to replace it with operators (`sample`, `guard`, etc) or use the `target` parameter of the operators.",
+        "Method `.watch` leads to imperative code. Try to replace it with operator (`sample`) or use the `target` parameter of the operator.",
     },
     schema: [],
   },
   create(context) {
-    const { parserServices } = context;
-    if (!parserServices.hasFullTypeInformation) {
+    let parserServices;
+    try {
+      parserServices = ESLintUtils.getParserServices(context);
+    } catch (err) {
+      // no types information
+    }
+
+    if (!parserServices?.program) {
       // JavaScript-way https://github.com/effector/eslint-plugin/issues/48#issuecomment-931107829
       return {};
     }

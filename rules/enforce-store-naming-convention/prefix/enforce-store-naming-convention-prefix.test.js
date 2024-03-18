@@ -19,8 +19,11 @@ ruleTester.run("effector/enforce-store-naming-convention-prefix.test", rule, {
     "correct-store-naming-from-other-package.js",
     "correct-store-naming-in-domain.js",
     "correct-examples-issue-23.js",
+    "correct-examples-issue-128.js",
+    "correct-examples-issue-136.js",
     "correct-store-naming-with-handlers.js",
     "correct-store-naming-in-domain-with-handlers.js",
+    "correct-factory.js",
   ]
     .map(readExampleForTheRule)
     .map((code) => ({ code })),
@@ -67,6 +70,27 @@ const store = createStore(null);
 import {createStore} from 'effector';
 const $store = createStore(null);
 `,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      code: `
+import {createStore} from 'effector';
+const $store$ = createStore(null);
+          `,
+      errors: [
+        {
+          messageId: "invalidName",
+          suggestions: [
+            {
+              messageId: "renameStore",
+              data: { storeName: "$store$", correctedStoreName: "$store" },
+              output: `
+import {createStore} from 'effector';
+const $store = createStore(null);
+          `,
             },
           ],
         },
